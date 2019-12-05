@@ -24,7 +24,6 @@ db에서 선수 수를 가져온 다음, 중복없는 무작위 선별 후, 선�
 <table>
     <tr>
         <td>
-            <![CDATA[
             int[] playerIdx = new int[9];
             int[] tempThPlayer = new int[9];
             int tempNum;
@@ -58,7 +57,6 @@ db에서 선수 수를 가져온 다음, 중복없는 무작위 선별 후, 선�
 
             pstmt.close();
             rs.close();
-            ]]>
         </td>
     </tr>
 </table>
