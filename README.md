@@ -21,36 +21,43 @@ db에서 선수 수를 가져온 다음, 중복없는 무작위 선별 후, 선�
 
 
 
-int[] playerIdx = new int[9];
-int[] tempThPlayer = new int[9];
-int tempNum;
+<table>
+    <tr>
+        <td>
+            int[] playerIdx = new int[9];
+            int[] tempThPlayer = new int[9];
+            int tempNum;
 
-sql = "select idx from finalresult order by idx asc";
-pstmt = con.prepareStatement(sql);
-rs = pstmt.executeQuery();
+            sql = "select idx from finalresult order by idx asc";
+            pstmt = con.prepareStatement(sql);
+            rs = pstmt.executeQuery();
 
-for (int i = 0; i < 9; i++) {
-    tempNum = random.nextInt(numOfPlayers-i-1)+1;
-    int dupleCount = 0;
-    int lastCount = 0;
-    boolean goLoop = true;
-    
-    while(goLoop) {
-        for (int j = 0; j < i; j++) {
-            if(tempNum+lastCount>=tempThPlayer[j]) {
-                dupleCount++;
+            for (int i = 0; i < 9; i++) {
+                tempNum = random.nextInt(numOfPlayers-i-1)+1;
+                int dupleCount = 0;
+                int lastCount = 0;
+                boolean goLoop = true;
+                
+                while(goLoop) {
+                    for (int j = 0; j < i; j++) {
+                        if(tempNum+lastCount>=tempThPlayer[j]) {
+                            dupleCount++;
+                        }
+                    }
+                    if(lastCount==dupleCount)goLoop=false;
+                    lastCount=dupleCount;
+                    dupleCount=0;
+                }
+                
+                tempThPlayer[i]=tempNum+lastCount;
+                rs.absolute(tempThPlayer[i]);
+                playerIdx[i]=Integer.parseInt(rs.getString("idx").toString());
             }
-        }
-        if(lastCount==dupleCount)goLoop=false;
-        lastCount=dupleCount;
-        dupleCount=0;
-    }
-    
-    tempThPlayer[i]=tempNum+lastCount;
-    rs.absolute(tempThPlayer[i]);
-    playerIdx[i]=Integer.parseInt(rs.getString("idx").toString());
-}
-rBean.setPlayeridx(playerIdx);
+            rBean.setPlayeridx(playerIdx);
 
-pstmt.close();
-rs.close();
+            pstmt.close();
+            rs.close();
+        </td>
+    </tr>
+</table>
+
