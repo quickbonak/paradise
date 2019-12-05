@@ -1,0 +1,315 @@
+#fallthings{
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 50;
+  margin: -382px 0 0 -480px;
+}
+#house{
+	position: absolute;
+	left: 450px;
+	top: 300px;
+	z-index: 10;
+}
+#zzz{
+	position: absolute;
+	left: 550px;
+	top: 220px;
+	z-index: 10;
+	display: none;
+}
+#trhouse{
+	position: absolute;
+	left: 450px;
+	top: 300px;
+	z-index: 100;
+}
+#shop{
+	position: absolute;
+	left: 720px;
+	top: 100px;
+	z-index: 10;
+}
+#field1{
+	width: 120px;
+	height: 180px;
+	position: absolute;
+	top: 470px;
+	left: 350px;
+	z-index: 10;
+}
+#trfield1{
+	position: absolute;
+	top: 470px;
+	left: 350px;
+	z-index: 100;
+}
+#field2{
+	width: 120px;
+	height: 180px;
+	position: absolute;
+	top: 470px;
+	left: 500px;
+	z-index: 10;
+}
+#trfield2{
+	position: absolute;
+	top: 470px;
+	left: 500px;
+	z-index: 100;
+}
+#field3{
+	width: 120px;
+	height: 180px;
+	position: absolute;
+	top: 470px;
+	left: 650px;
+	z-index: 10;
+}
+#trfield3{
+	position: absolute;
+	top: 470px;
+	left: 650px;
+	z-index: 100;
+}
+#trlumberjack{
+	position: absolute;
+	top: 132px;
+	left: 125px;
+	z-index: 100;
+}
+#trbeekeep{
+	position: absolute;
+	top: 265px;
+	left: 0px;
+	z-index: 100;
+}
+#trwoodchop{
+	position: absolute;
+	left: 325px;
+	top: 319px;
+	z-index: 100;
+}
+#trswim{
+	position: absolute;
+	left: 0px;
+	top: 460px;
+	z-index: 100;
+}
+#trhike{
+	position: absolute;
+	left: 150px;
+	top: 40px;
+	z-index: 100;
+}
+#trchinup{
+	position: absolute;
+	left: 740px;
+	top: 310px;
+	z-index: 100;
+}
+#cochop{
+	position: absolute;
+	left: 310px;
+	top: 315px;
+	display: none;
+	z-index: 15;
+}
+#colum{
+	position: absolute;
+	left: 125px;
+	top: 132px;
+	display: none;
+	z-index: 15;
+}
+#cobee{
+	position: absolute;
+	left: 0px;
+	top: 265px;
+	display: none;
+	z-index: 15;
+}
+#coswim{
+	position: absolute;
+	left: 50px;
+	top: 480px;
+	display: none;
+	z-index: 15;
+}
+#cohike{
+	position: absolute;
+	left: 450px;
+	top: 120px;
+	display: none;
+}
+#cofish{
+	position: absolute;
+	left: 170px;
+	top: 470px;
+	display: none;
+}
+#cochin{
+	position: absolute;
+	left: 752px;
+	top: 279px;
+	display: none;
+}
+#co53{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: none;
+	z-index: 15;
+}
+#co63{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: none;
+	z-index: 15;
+}
+#co73{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: none;
+	z-index: 15;
+
+}
+#menu1{
+	position: absolute;
+	top: 450px;
+	left: 270px;
+	z-index: 110;
+	display: none;
+}
+#menusowing0{
+	width: 120px;
+	height: 180px;
+	position: absolute;
+	top: 450px;
+	left: 525px;
+	z-index: 110;
+	display: none;
+}
+#menu2{
+	width: 120px;
+	height: 180px;
+	position: absolute;
+	top: 450px;
+	left: 420px;
+	z-index: 110;
+	display: none;
+}
+#menusowing1{
+	width: 120px;
+	height: 180px;
+	position: absolute;
+	top: 450px;
+	left: 675px;
+	z-index: 110;
+	display: none;
+}
+#menu3{
+	width: 120px;
+	height: 180px;
+	position: absolute;
+	top: 450px;
+	left: 570px;
+	z-index: 110;
+	display: none;
+}
+#menusowing2{
+	width: 120px;
+	height: 180px;
+	position: absolute;
+	top: 450px;
+	left: 825px;
+	z-index: 110;
+	display: none;
+}
+#menu7{
+	width: 120px;
+	height: 180px;
+	position: absolute;
+	top: 460px;
+	left: 50px;
+	z-index: 110;
+	display: none;
+}
+	
+
+#downupthings{
+	position: absolute;
+	z-index: 30;
+	left: 88%;
+	top: -40%;
+}
+
+body{
+	position: relative;
+	font-family: 'Jua', sans-serif;
+	background-color: #f2f2f2;
+}
+
+#fieldmenu0{
+	position: relative;
+}
+	
+#bottombar{
+	width: 960px;
+	height: 76px;
+	position: absolute;
+	left: 0%;
+	bottom: 0%;
+	background-color: brown;
+	color: white;
+}
+
+.charname{
+	width: 200;
+	text-align: center;
+	border-right-style: dotted;
+	border-color: white;
+	border-width: 1px;
+}
+
+.texts{
+	width: 100px;
+	text-align: center;
+}
+
+.numbers{
+	width: 70px;
+	padding-right: 30px;
+	text-align: right;
+	border-right-style: dotted;
+	border-color: white;
+	border-width: 1px;
+}
+
+.rightside{
+	width: 160px;
+	text-align: center;
+}
+
+#endTurn{
+	width: 100px;
+	border:1px solid #df0909; -webkit-border-radius: 10px; -moz-border-radius: 10px;border-radius: 10px;font-size:12px;padding: 5px 5px 5px 5px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+	background-color: #f62b2b; background-image: -webkit-gradient(linear, left top, left bottom, from(#f62b2b), to(#d20202));
+	background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
+	background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
+	background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
+	background-image: -o-linear-gradient(top, #f62b2b, #d20202);
+	background-image: linear-gradient(to bottom, #f62b2b, #d20202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+}
+
+#endTurn:hover{
+	border:1px solid #b30808;
+	background-color: #e40a0a; background-image: -webkit-gradient(linear, left top, left bottom, from(#e40a0a), to(#9f0202));
+	background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
+	background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
+	background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
+	background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
+	background-image: linear-gradient(to bottom, #e40a0a, #9f0202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
+}

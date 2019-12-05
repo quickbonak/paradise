@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>login</title>
+<style>
+#box{
+	position: absolute;
+	top: 72%;
+	left: 49%;
+	width:240px;
+	height: 130px;
+	margin: -65px 0 0 -120px;
+}
+#background{
+	background: url("img/baby2.jpg");
+	background-size:auto 100%;
+	width: 960px;
+		height: 684px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 0;
+		margin: -342px 0 0 -480px;
+	
+}
+
+.f{
+	width:700px;
+	padding:1px;
+}
+.button{
+	background-color:#fabce1;
+}
+
+</style>
+</head>
+
+<body>
+	<div id="background">
+
+	<table width="300" height="150" id="box">
+	<form method ="post" action="login.jsp">
+	<tr class="f">
+	<td colspan="2" align="center" bgcolor="#AACBF1">
+	꿀벌의 생존과 철인 도전기
+	</td>
+	</tr>
+	<tr>
+	<td align="right"  bgcolor="#AACBF1">캐릭터명 </td>
+	<td bgcolor="#AACBF1" align="center"><input type="text" name ="id" size="12"></td>
+	</tr>
+	<tr>
+	<td align="right"  bgcolor="#AACBF1">암호 </td>
+	<td bgcolor="#AACBF1" align="center"> <input type="password" name="pass" size="12"></td>
+	</tr>
+	<tr>
+	<td colspan="2" align="center">
+	<input type="submit" value="로그인하기" class="button" >
+	<a href="register.html"><input type="button" value="캐릭터등록"  class="button"> </a>
+	</td>
+	</tr>
+	</form>
+	</table>
+	</div>
+
+</body>
+</html>

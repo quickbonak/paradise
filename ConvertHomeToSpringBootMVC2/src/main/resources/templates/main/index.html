@@ -1,0 +1,70 @@
+<!-- 코드부 차후 확인 텍스트 출력이라는 부분을 타임리프를 활용해 적절한 글귀로 바꿀 것-->
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>이진 포트폴리오</title>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="main/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom fonts for this template -->
+	<link href="main/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+		type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Yeon+Sung"
+		rel="stylesheet">
+	
+	<!-- Custom styles for this template -->
+	<link href="main/css/agency.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+		<div class="container"></div>
+	</nav>
+
+	<!-- Header -->
+	<header class="masthead">
+		<div class="container">
+			<form method="post" name="loginForm" action="/">
+				<div class="intro-text">
+					<div class="intro-heading text-uppercase">
+						<sapn th:text="${showText}"></sapn><br> <input type="password" name="pass" placeholder="암호입력" style="width: 30%; font-size: 30px; height: 40px;"><br>
+					</div>
+
+					<a class="btn btn-primary btn-xs  js-scroll-trigger" onclick="login()">CONTINUE</a>
+				</div>
+			</form>
+		</div>
+	</header>
+
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="main/vendor/jquery/jquery.min.js"></script>
+	<script src="main/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="main/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Contact form JavaScript -->
+	<script src="main/js/jqBootstrapValidation.js"></script>
+	<script src="main/js/contact_me.js"></script>
+
+	<!-- Custom scripts for this template -->
+	<script src="main/js/agency.min.js"></script>
+
+	<script>
+		function login(){
+			document.loginForm.submit();
+		}
+	</script>
+</body>
+
+</html>

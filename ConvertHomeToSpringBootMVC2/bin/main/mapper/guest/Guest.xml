@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bpduo.guest.mapper.GuestMapper">
+
+	<select id="howManyPosts" resultType="int">
+		<![CDATA[
+			SELECT
+				count(idx) as countNum
+			FROM
+				homeboard
+		]]>
+	</select>
+	
+	<select id="getPost" parameterType="int" resultType="bpduo.guest.dto.GuestDto">
+		<![CDATA[
+			SELECT
+				idx,
+				idn,
+				id,
+				sdate,
+				readcount,
+				title,
+				conten
+			FROM
+				homeboard
+			NATURAL JOIN 
+				homeregister
+			ORDER BY
+				idx DESC
+			LIMIT
+				#{nthPost}, 1
+		]]>
+	</select>
+	
+	<select id="regiUnique" parameterType="bpduo.guest.dto.GuestDto" resultType="boolean">
+		<![CDATA[
+			SELECT
+				count(*) as	dupleCount
+			FROM
+				homeregister
+			WHERE
+				id = #{id}
+		]]>
+	</select>
+	
+	<insert id="regiDo" parameterType="bpduo.guest.dto.GuestDto">
+		<![CDATA[
+			INSERT INTO homeregister
+				(
+					id,
+					pass
+				)
+			VALUES
+				(
+					#{id},
+					md5(#{pass})
+				)
+		]]>
+	</insert>
+	
+	<select id="guestLogin" parameterType="bpduo.guest.dto.GuestDto" resultType="bpduo.guest.dto.GuestDto">
+		<![CDATA[
+			SELECT
+				id,idn
+			FROM
+				homeregister
+			WHERE
+				pass = md5(#{pass})
+		]]>
+	</select>
+	
+	<insert id="createPost" parameterType="bpduo.guest.dto.GuestDto">
+		<![CDATA[
+			INSERT INTO homeboard
+				(
+					idn,
+					title,
+					conten
+				)
+			VALUES
+				(
+					#{idn},
+					#{title},
+					#{conten}
+				)
+		]]>
+	</insert>
+	
+	
+	<delete id="deletePost" parameterType="bpduo.guest.dto.GuestDto">
+		<![CDATA[
+			DELETE FROM homeboard
+			WHERE
+				idx = #{idx}
+		]]>
+		
+	</delete>
+	
+	
+	<update id="updatePost" parameterType="bpduo.guest.dto.GuestDto">
+		<![CDATA[
+			UPDATE homeboard
+			SET
+				title = #{title},
+				conten = #{conten}
+			WHERE
+				idx= #{idx}
+		]]>
+	</update>
+	
+	<select id="upForm" parameterType="int" resultType="bpduo.guest.dto.GuestDto">
+		<![CDATA[
+			SELECT
+				idx,
+				title,
+				conten
+			FROM
+				homeboard
+			NATURAL JOIN 
+				homeregister
+			WHERE
+				idx= #{idx}
+		]]>
+	</select>
+	
+</mapper>

@@ -1,0 +1,52 @@
+<html>
+<head>
+<title></title>
+<style>
+
+#mr{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-342px 0px 0px -480px;
+	z-index:0;
+}
+#eat{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:200px 0px 0px -300px;
+	z-index:10;
+}
+#get{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:265px 0px 0px -300px;
+	z-index:10;
+}
+</style>
+</head>
+<body>
+<img src="img/mushroom.jpg" id="mr">
+
+<form method="post" action="fungus.jsp" id="fomfom">
+<input type="text" name="selectedValue" id="sv" value="">
+<img src="img/eat.jpg" id="eat" onclick="eateat()">
+<img src="img/get.jpg" id="get" onclick="getget()">
+</form>
+
+<script>
+
+function eateat(){
+	document.getElementById("sv").value = "0";
+	document.getElementById("fomfom").submit();
+}
+
+function getget(){
+	document.getElementById("sv").value = "1";
+	document.getElementById("fomfom").submit();
+}
+
+</script>
+</body>
+</html>

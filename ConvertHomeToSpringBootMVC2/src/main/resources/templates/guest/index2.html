@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"></meta>
+	<meta name="viewport" content="width=device-width" ,initial-scale="1.0"></meta>
+	<link rel="stylesheet" type="text/css" href="guest/css/index.css"></link>
+	<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet"></link>
+	<link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet"></link>
+	<link href="https://fonts.googleapis.com/css?family=BenchNine:700"></link>
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="guest/js/jquery-2.1.3.min.js"></script>
+	<script src="guest/js/jquery.backstretch.min.js"></script>
+	<script src="guest/js/index.js"></script>
+</head>
+
+<body>
+	<table id="registerform">
+		<form method="post" name="registerForm" action="register.jsp"  id="join">
+			<tr>
+				<td><input type="text" name="id" placeholder="아이디" style="width:147px; height:27px;"></input></td>
+				<td style="color:white;">WELCOME</td>
+					
+			</tr>
+			
+			<tr>
+				<td><input type="password" name="pass" id="pass1" placeholder="비밀번호" style="margin-top:-4px; height:27px;"></input></td>
+				<td><input type="button" value="회원가입" onclick="register()" style="width:80px; text-align:center; margin-left:0px; margin-top:-5px" class='ghost-button'></input></td>	
+				
+			</tr>
+			
+			<tr>
+				<td><input type="password" id="pass2" placeholder="비밀번호확인" style="margin-top:-4px; height:27px;"></input></td>
+				<td><input type="button" value="취소" onclick="registeracancel()" style="width:80px; margin-top:-5px; margin-right:100px;" class='ghost-button'></input></td>
+			</tr>
+			
+		</form>
+	</table>
+	<div id="numberfull">
+		<!--<p>JIN-FRONTEND(JAVASCRIPT)</p>-->
+		<span id="space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
+		<span id="hire" onclick="location.href='/'">&nbsp; Binary</span>
+		 
+		<table id="loginbox">
+			<tr>
+				<form method="post" action="login.jsp" id="login" name="loginForm">
+				<td th:if="${gIndex.login}=='true'" th:text="${gIndex.id+'님 환영합니다.'}"></td>
+				<td th:unless="${gIndex.login}=='true'"><input type='text' name='id' placeholder='아이디' style='width:150px; height:30px;'><br></br><input type='password' name='pass' placeholder='비밀번호' style='width:150px; height:30px;'></input></td>
+
+				<td>
+					<input type='text' name='isLogOut' id='isLogOut' value='0' style='display:none'></input>
+					<input th:if="${gIndex.login}=='true'" type='button' value='로그아웃' onclick='doLogOut()' class='ghost-button' sdtyle='background-color:white; padding:20px 20px;'></input>
+					<span th:unless="${gIndex.login}=='true'">
+					<input type='submit' value='로그인' class='ghost-button' style='width:80px; height:32px;'><br></br></input>
+					<input type='button' value='회원가입' id='registerbt' onclick='registerform()' class='ghost-button' style='width:80px; height:32px;'></input>
+					</span>
+				</td>
+				
+				</form>
+			</tr>
+		</table>
+	</div>
+
+	<div id="backgr">
+		<!-- 로그인 양식 -->
+			
+
+			<!-- 회원가입 양식 -->
+			
+			
+		
+		<div id="header" onmouseover="over()" onmouseout="out()"></div>
+	</div>
+	<div id="backgrbottom"></div>
+
+	<!-- 컨텐츠 -->
+	<div id="middle">
+	
+	    <!-- title, conten을 작성하여 글쓰기 /guest/write 파라메터로 보낼 수 있음. 로그인시에만 보인다. -->
+	    <div class="naeyoung" th:if="${gIndex.login}=='true'">
+	        <table class="postcontent" style="border: 1px double #619991;" id="writetable">
+	            <form method="post" action="/guest/write" name="writeForm">
+	            <tr><td style="background-color:white; height:20px;"><input type="text" name="title" placeholder="제목" style="width:100%; background-color:#fcfcfc;"></td></tr><br>
+	            <tr><td><textarea rows="10" cols="20" name="conten" style="width:100%; height:100%; background-color:#fcfcfc; resize: none;"></textarea></td></tr><br>
+	            <tr><td style="text-align:right; height:50px;"><span class="number" id="writer" onclick="writePost()" style="height:20px; font-size:20px;"> &nbsp;&nbsp;WRITE &nbsp;&nbsp;</span></td></tr>
+	            </form>
+	        </table>
+	    </div>
+	    
+	   <!--수정이나 삭제할 때 신호를 담아두는 컬럼을 가진 폼 guest/modDel 에서 받는다.-->
+	   <form method="post" action="guest/modDel" name="guestForm">
+		   <input name="guestSignal" id="guestSignal" style="display:none;" value="0"></input>
+		   <input name="postNum" id="postNum" style="display:none;" value="0"></input>
+			
+			<!--  
+			<span name="testfield" th:text="${gPosts.conten}"></span> 
+			-->
+			
+	        <div class='naeyoung' th:each="list:${gPosts}">
+	            <table class='postcontent' id='postcontent'>
+	                <tr>
+	                    <td colspan='3' style='height:20px; background-color:#619991;color:white; padding-left:7px; font-size:30px;' th:text="${list.title}">
+	                    </td>
+	                </tr>
+	                <tr style='background-color:#30474f; color:white;' th:text="${list.idx}">
+	                    <td style='height:20px;' class='nwd' th:text="${list.idx}">
+	                    </td>
+	                    <td style='height:20px;' class='nwd' th:text="${list.id}">
+	                    </td>
+	                    <td style='height:20px; padding:6px 0px 6px 5px;' colspan='2'  class='nwd' th:text="${list.Date}">
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <td colspan='3' style='padding-left:0px;'>
+	                        <textarea class='contentArea' style='background-color:#fcfcfc; font-size:20px;' th:text="${list.conten}">
+	                        </textarea>
+	                    </td>
+	                </tr>
+		            <!--  
+		            <tr th:if="${gIndex.idn==list.idn}">
+		                <td colspan='3' style='height:20px; text-align:right; background-color:#30474f;'>
+		                    <span onclick='guestModify()' class='number'>MODIFY</span>
+		                    <span onclick='guestDelete()' class='number'>DELETE</span>
+		                </td>
+		            </tr>
+		            -->
+		        </table>
+	    	</div>
+		</form>
+		
+	</div>
+	<div id="footer">
+		<div>
+		<p id="footermail" style= "padding:10px 0;">ljlj122@naver.com</p>
+			
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>캐릭터생성</title>
+<style>
+#box{
+	position:absolute;
+	top:75%;
+	left:50%;
+	margin:-75px 0 0 -150px;
+}
+#background{
+	background: url("img/baby2.jpg");
+	background-size:auto 100%;
+	width: 960px;
+		height: 684px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 0;
+		margin: -342px 0 0 -480px;
+	
+}
+.button{
+	background-color:#fabce1;
+}
+
+</style>
+</head>
+<body>
+	<div id="background">
+		<form name="myForm" method="post" action="register.jsp">
+		<table width="300" height="150" id="box">
+		<tr>
+		    <td colspan="2" align="center" bgcolor="#AACBF1">캐릭터 등록</td>
+		</tr>
+		<tr>
+		<td width="100" align="right"  bgcolor="#AACBF1">
+		캐릭터명 :
+		</td>
+		<td width=* bgcolor="#AACBF1">
+		<input type="text" name="name">
+		</td>
+		</tr>
+		<tr>
+		<td align="right" bgcolor="#AACBF1">암호 : </td>
+		<td bgcolor="#AACBF1"><input type="password" name="pass" id="pass1"></td>
+		</tr>
+		<tr>
+		<td align="right" bgcolor="#AACBF1">암호재입력 : </td>
+		<td bgcolor="#AACBF1"><input type="password" id="pass2"></td>
+		</tr>
+		<tr>
+		<td colspan="2" align="center">
+		
+		&nbsp;<input type="button" value="등록하기" onClick="send()" class="button">&nbsp;
+		<a href="login.html"><input type="button" value="취소하기" class="button"></a>
+		    </td>
+		
+		</tr>
+		</table>
+		</form>
+	</div>
+<script>
+
+function send(){
+	if(document.getElementById('pass1').value==document.getElementById('pass2').value){
+            document.myForm.submit();
+    }else{
+        alert("암호와 재입력란이 같지 않습니다.");
+    }
+
+}
+
+</script>
+</body>
+</html>

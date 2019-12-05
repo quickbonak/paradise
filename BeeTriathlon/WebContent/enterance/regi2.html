@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+
+#story2{
+	position:absolute;
+	top:50%;
+	left:50%;
+	z-index:50;
+	margin:-342px 0px 0px -480px;
+}
+#story3{
+	position:absolute;
+	top:50%;
+	left:50%;
+	z-index:40;
+	margin:-342px 0px 0px -480px;
+}
+#story4{
+	position:absolute;
+	top:50%;
+	left:50%;
+	z-index:30;
+	margin:-342px 0px 0px -480px;
+}
+#story5{
+	position:absolute;
+	top:50%;
+	left:50%;
+	z-index:20;
+	margin:-342px 0px 0px -480px;
+}
+		.button{
+			top: 90%;
+			left: 70%;
+			position:absolute;
+			z-index: 10;
+		}
+
+</style>
+</head>
+<body>
+<a href="../main/main.jsp"><input type="button" value="===스킵하기==="  class="button"></a>
+
+<img src="img/story2.jpg" id="story2">
+<img src="img/story3.jpg" id="story3">
+<img src="img/story4.jpg" id="story4">
+<img src="img/story5.jpg" id="story5">
+
+
+<script>
+
+$(document).ready(function(){
+
+    setTimeout(function(){
+        $('#story2').fadeOut();}, 4000);
+    
+    setTimeout(function(){
+        $('#story3').fadeOut();}, 8000);
+    
+    setTimeout(function(){
+        $('#story4').fadeOut();}, 12000);
+    
+    setTimeout(function(){
+    	location.href="regi3.html";}, 18000);
+
+});
+</script>
+</body>
+</html>
