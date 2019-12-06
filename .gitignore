@@ -3,3 +3,6 @@ build
 .classpath
 .project
 META-INF
+.metadata
+.gradle
+bin
