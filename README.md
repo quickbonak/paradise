@@ -22,6 +22,7 @@ db에서 선수 수를 가져온 다음, 중복없는 무작위 선별 후, 선�
 
 
 <div>
+
             sql = "select idx from finalresult order by idx asc";
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
@@ -51,5 +52,6 @@ db에서 선수 수를 가져온 다음, 중복없는 무작위 선별 후, 선�
 
             pstmt.close();
             rs.close();
+            
 </div>
 
