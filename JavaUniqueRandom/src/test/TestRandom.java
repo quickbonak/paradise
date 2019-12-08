@@ -1,30 +1,17 @@
 package test;
 
 import com.github.quickbonak.paradise.UniqueRandom;
-
+import com.zhongpei.utils.numberGenerator;
 
 public class TestRandom {
 
 	public static void main(String[] args) {
-		
+		/*
+		numberGenerator nRandom = new numberGenerator();
+		int[] abc = nRandom.generateNoDup(1, 1000000000, 10);
+		*/
 		UniqueRandom uRandom = new UniqueRandom();
-		
-		int resu[] = new int[10];
-		for (int i = 0; i < resu.length; i++) {
-			resu[i] = uRandom.nextIntOnce(1, 10);
-			System.out.println(resu[i]);
-		}
-		uRandom.resetNextIntOnce();
-		for (int i = 0; i < resu.length; i++) {
-			resu[i] = uRandom.nextIntOnce(1, 10);
-			System.out.println(resu[i]);
-		}
-		uRandom.resetNextIntOnce();
-		for (int i = 0; i < resu.length; i++) {
-			resu[i] = uRandom.nextIntOnce(1, 10);
-			System.out.println(resu[i]);
-		}
-		
+		int[] test = uRandom.nextIntArray(-2047483647, 2047483646, 10);
 	}
 
 }
