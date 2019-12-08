@@ -7,12 +7,18 @@ import java.util.Random;
 public class UniqueRandom {
 
 
-	Random random = new Random();
-	private List<Integer> uniqueField = new ArrayList<Integer>();
+	public Random random = new Random();
 	
-	private int range=0;
-	private int calibration=0;
+	private int range = 0;
+	private int calibration = 0;
 	
+	// for nextIntUnit
+	private int arrayPiece = 1;
+	private int arrayLength = arrayPiece * 1023;
+	private int[] uniqueField = new int[arrayLength];
+	private int targetThisTime = 0;
+	
+	// end
 	private void initialization(int from, int to) {
 		this.range = to-from+1;
 		if(this.range < 0) {
@@ -23,72 +29,109 @@ public class UniqueRandom {
 		}
 	}
 
-	//타겟 인덱스는 랜덤 도출을 위해 계산될 후보의 수  + 1, 즉 새로운 랜덤이 생성될 인덱스
+	// end
+	// 타겟 인덱스는 랜덤 도출을 위해 계산될 후보의 수  + 1, 즉 새로운 랜덤이 생성될 인덱스
 	private int uniqueIntFactory(int[] list, int targetIndex) {
-		int result = this.random.nextInt(this.range-targetIndex) + this.calibration;
+		
+		int result = this.random.nextInt(this.range - targetIndex) + this.calibration;
+		
+		int dupliCount = 0;
+		int lastCount = 0;
+		boolean[] lookIn = new boolean[targetIndex];
+		boolean goLoop = true;
+		
+		while(goLoop) {
+			
+			for(int i = 0; i < targetIndex; i++) {
+				
+				if(!lookIn[i]) {
+					
+					if(result+dupliCount >= list[i]) {
+						dupliCount++;
+						lookIn[i] = true;
+					}
+					
+				}
+				
+			}
+			
+			if(lastCount == dupliCount) {
+				goLoop = false;
+			}
+			
+			lastCount = dupliCount;
+			
+		}
+		
+		result += dupliCount;
 		
 		return result;
+		
 	}
 	
-	public int nextIntUnit(int from, int to) {
-
-		return 0;
+	// end
+	public int nextIntOnce(int from, int to) {
+		
+		int result = 0;
+		
+		this.initialization(from, to);
+		
+		if(this.targetThisTime == this.arrayLength) {
+			int[] tempField = this.uniqueField;
+			this.arrayPiece++;
+			this.arrayLength = this.arrayPiece * 1023;
+			this.uniqueField = new int[arrayLength];
+			
+			for (int i = 0; i < tempField.length; i++) {
+				this.uniqueField[i] = tempField[i];
+			}
+		}
+		
+		result = this.uniqueIntFactory(uniqueField, targetThisTime);
+		this.uniqueField[targetThisTime] = result;
+		this.targetThisTime++;
+		
+		return result;
+		
 	}
 	
-	public void resetUniqueField() {
-		this.uniqueField.clear();
+	// end
+	public void resetNextIntOnce() {
+		
+		this.arrayPiece = 1;
+		this.arrayLength = this.arrayPiece * 1023;
+		this.uniqueField = new int[arrayLength];
+		this.targetThisTime = 0;
+		
 	}
 	
-	
+	// end
 	public int[] nextIntArray(int from, int to, int arrayLength) {
 		
 		int[] result = new int[arrayLength];
-		int range = to-from+1;
-		int calibration = from;
 		
-		if(range < 0) {
-			range = -range;
-			calibration = to;
-		}
+		this.initialization(from, to);
 		
-		Random random = new Random();
-		for(int i=0; i<arrayLength; i++) {
-			
-			result[i] = random.nextInt(range-i) + calibration;
-
-			int dupleCount = 0;
-			int lastCount = 0;
-			boolean[] lookIn = new boolean[arrayLength];
-			boolean goLoop = true;
-			while(goLoop) {
-				for(int j=0; j<i; j++) {
-					if(!lookIn[j]) {
-						if(result[i]+dupleCount>=result[j]) {
-							dupleCount++;
-							lookIn[j] = true;
-						}
-					}
-				}
-				if(lastCount==dupleCount)goLoop=false;
-				lastCount=dupleCount;
-			}
-			result[i] += lastCount;
+		for (int i = 0; i < arrayLength; i++) {
+			result[i] = this.uniqueIntFactory(result, i);
 		}
 		
 		return result;
+		
 	}
 	
-	
-	public List<Integer> nextIntegerList(int from, int to, int listLength) {
+	// end
+	public List<Integer> nextIntegerList(int from, int to, int listSize) {
 
 		List<Integer> result = new ArrayList<Integer>();
-		int[] arrayResult = this.nextIntArray(from, to, listLength);
+		int[] arrayResult = this.nextIntArray(from, to, listSize);
 		
-		for (int i : arrayResult) {
+		for (int i = 0; i < listSize; i++) {
 			result.add(arrayResult[i]);
 		}
 		
 		return result;
+		
 	}
 	
 	

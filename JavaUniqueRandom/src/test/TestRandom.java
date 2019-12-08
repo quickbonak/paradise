@@ -1,7 +1,5 @@
 package test;
 
-import java.util.List;
-
 import com.github.quickbonak.paradise.UniqueRandom;
 
 
@@ -11,10 +9,20 @@ public class TestRandom {
 		
 		UniqueRandom uRandom = new UniqueRandom();
 		
-		List<Integer> aa = uRandom.nextIntegerList(0, 9, 10);
-		
-		for (int i = 0; i < aa.size(); i++) {
-			System.out.println(aa.get(i));
+		int resu[] = new int[10];
+		for (int i = 0; i < resu.length; i++) {
+			resu[i] = uRandom.nextIntOnce(1, 10);
+			System.out.println(resu[i]);
+		}
+		uRandom.resetNextIntOnce();
+		for (int i = 0; i < resu.length; i++) {
+			resu[i] = uRandom.nextIntOnce(1, 10);
+			System.out.println(resu[i]);
+		}
+		uRandom.resetNextIntOnce();
+		for (int i = 0; i < resu.length; i++) {
+			resu[i] = uRandom.nextIntOnce(1, 10);
+			System.out.println(resu[i]);
 		}
 		
 	}
