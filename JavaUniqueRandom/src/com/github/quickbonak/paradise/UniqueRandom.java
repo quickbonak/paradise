@@ -18,7 +18,7 @@ import java.util.Random;
  */
 public class UniqueRandom {
 	/**
-	 * If you want to use common {@code java.util.Random} method.
+	 * If you want to use common {@code java.util.Random}
 	 */
 	public Random random = new Random();
 	
@@ -45,27 +45,27 @@ public class UniqueRandom {
 		}
 	}
 
-	/* Substantive generating a unique random number procedure.
+	/* Substantive generator of a unique random number.
 	 * list : number of result numbers with void spaces.
-	 * targetIndex = numberOfResultNumbers + 1 (target array index or result this time.)
+	 * targetIndex = numberOfResultNumbers + 1 (target array index at this time.)
 	 */
 	private int uniqueIntFactory(int[] list, int targetIndex) {
 		int result = this.random.nextInt(this.range - targetIndex) + this.calibration;
 		int dupliCount = 0;
 		int lastCount = 0;
-		boolean[] lookIn = new boolean[targetIndex];
-		boolean goLoop = true;
-		while(goLoop) {
+		boolean[] counted = new boolean[targetIndex];
+		boolean checking = true;
+		while(checking) {
 			for(int i = 0; i < targetIndex; i++) {
-				if(!lookIn[i]) {
+				if(!counted[i]) {
 					if(result+dupliCount >= list[i]) {
 						dupliCount++;
-						lookIn[i] = true;
+						counted[i] = true;
 					}
 				}
 			}
 			if(lastCount == dupliCount)
-				goLoop = false;
+				checking = false;
 			lastCount = dupliCount;
 		}
 		result += dupliCount;
@@ -74,8 +74,8 @@ public class UniqueRandom {
 	
 	/**
 	 * Returns a generated unique random number.<p>
-	 * If you want to clear history cache<br>
-	 * (it store numbers for checking duplicate)<br>
+	 * If you want to clear history cache,<br>
+	 * (it store numbers to find out duplication)<br>
 	 * and new unique random procedure again.<br>
 	 * Use <b>resetNextIntOnce</b> method.<br>
 	 * <p>
@@ -90,12 +90,12 @@ public class UniqueRandom {
 			int[] tempField = this.uniqueField;
 			this.arrayPiece++;
 			this.arrayLength = this.arrayPiece * 1023;
-			this.uniqueField = new int[arrayLength];
+			this.uniqueField = new int[this.arrayLength];
 			for (int i = 0; i < tempField.length; i++)
 				this.uniqueField[i] = tempField[i];
 		}
-		result = this.uniqueIntFactory(uniqueField, targetThisTime);
-		this.uniqueField[targetThisTime] = result;
+		result = this.uniqueIntFactory(this.uniqueField, this.targetThisTime);
+		this.uniqueField[this.targetThisTime] = result;
 		this.targetThisTime++;
 		return result;
 	}
@@ -107,7 +107,7 @@ public class UniqueRandom {
 	public void resetNextIntOnce() {
 		this.arrayPiece = 1;
 		this.arrayLength = this.arrayPiece * 1023;
-		this.uniqueField = new int[arrayLength];
+		this.uniqueField = new int[this.arrayLength];
 		this.targetThisTime = 0;
 	}
 	
