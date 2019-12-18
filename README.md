@@ -15,5 +15,5 @@
 <b>Homepage</b> - 홈페이지 <br>
 <b>JavaUniqueRandom</b> - 고유 램덤 라이브러리 자바 소스코드 <br>
 <b>urandom-1.0.0.jar</b> - 고유 랜덤 라이브러리 파일 <br>
-랜덤 라이브러리의 설명서는 [홈페이지](http://bpduo.com/paradise/portfolio0.html?target="_blank")와 [배포용 저장소](https://github.com/quickbonak/UniqueRandom?target="_blank")에 있습니다.<br>
+랜덤 라이브러리의 설명서는 [홈페이지](http://bpduo.com/paradise/portfolio0.html){:target="_blank"}와 [배포용 저장소](https://github.com/quickbonak/UniqueRandom){:target="_blank"}에 있습니다.<br>
 <b>Scheduler</b> - 스캐줄러 <br>
