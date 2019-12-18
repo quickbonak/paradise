@@ -16,7 +16,7 @@
 		String thePage = passPort.passCheck(request.getParameter("pass"));
 		if(thePage.equals("wrong")){
 			showText="암호가 틀렸습니다.";
-		}else if(thePage.equals("/paradise/portfolio1.html")){
+		}else if(thePage.equals("/paradise/portfolio0.html")){
 			response.sendRedirect(thePage);
 		}else{
 			session.setAttribute("thePage", thePage);

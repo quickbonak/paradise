@@ -29,13 +29,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+					<li class="nav-item active">
             <a class="nav-link" href="portfolio0.html">랜덤Lib</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="portfolio1.html">스캐줄러</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="portfolio2.html">꿀벌철인게임</a>
           </li>
           <li class="nav-item">
@@ -54,40 +54,48 @@
 
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">
-      꿀벌 철인 게임
+      고유 랜덤 Library
     </h1>
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
         <a href="portfolio0.html">Home</a>
       </li>
-      <li class="breadcrumb-item active">꿀벌 철인 게임</li>
+      <li class="breadcrumb-item active">고유 랜덤 Library</li>
     </ol>
 
     <!-- Image Header -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/HdT9ffcBRjU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+    <img class="img-fluid rounded mb-4 mx-auto d-block" src="UniqueRandom.jpg" alt="">
 
     <!-- Marketing Icons Section -->
     <div class="row">
       <div class="col-lg-12 mb-12">
         <div class="card h-100">
           <div class="card-footer text-center">
-            <a href="../portfolio/enterance/login.html" class="btn btn-info" target="_blank">하러 가기</a>
+            <a href="https://github.com/quickbonak/UniqueRandom/blob/master/src/com/github/quickbonak/paradise/UniqueRandom.java" class="btn btn-info" target="_blank">소스 보기</a>
           </div>
           <div class="card-body">
             <p class="card-text text-center">
-              JSP, JAVA, MySQL간의 정보처리와 교환<br>
-              Html, Css, Jquery를 이용해 UX 구현<br>
-              데이터를 시각적 이미지로 치환하여 표현<br>
-              db의 사용자 값을 이용한 세미 멀티플레이 구현<br>
-              사용자와 소통한 선택을 알고리즘 처리하여<br>
-              데이터베이스에 반영, 동작하는 생존철인게임<br><br>
+              중복되지 않는 난수를 생성하는 라이브러리<br>
+              공학적 사고방식과 문제 해결능력에 촛점<br>
+              기업용으로 사용될 것을 염두한 성능중심의 프로그래밍<br>
+              (최대성능을 위해 리스트가 아닌 배열로 처리,<br>
+              성능이 집중되는 부분과 시인성이 중요한 부분을 나누어 리펙토링<br>
+              선언 위치 하나하나 성능과 유지보수를 고려)<br><br>
+
+              오픈소스의 세계에 첫 발을 들이기 위함<br>
+              폭넓은 접근성을 위해 영문으로 주석을 첨부<br>
+              기트허브를 통해 오픈소스로 공개<br>
+              (위의 소스보기링크의 기트저장소가 배포용)<br><br>
               
-              춥고 배고픈 낫선 땅에 떨어진 어린 꼬몽이의 처절한 생존사투<br>
-              그 환경 속에서도 꼬몽이는 부모님을 찾고자 고대한다<br>
-              가진게 몸뚱이밖에 없는 꼬몽이의 선택은 철인 삼종경기!<br>
-              과연 살아남고, 철인대회 수상을 하여 이름을 날리고<br>
-              부모님과 재회 할 수 있을 것인가?...... 
+              사용 메서드
+              <div style="margin: 0 auto; width: 500px;">
+                <b>nextIntOnce</b> - int형으로 지정된 범위의 중복되지 않는 정수 1개 반환<br>
+                <b>resetNextIntOnce</b> - 위 메서드 중복 작업을 재시작할 수 있게 함<br>
+                <b>nextIntList</b> - 범위내의 중복되지 않는 정수의 리스트를 반환<br>
+                <b>nextIntArray</b> - 범위내의 중복되지 않는 정수의 배열을 반환<br>
+              </div>
+              
             </p>
           </div>
         </div>

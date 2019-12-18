@@ -6,7 +6,7 @@ public class PassPort {
 	final String ljpage = "binary.jsp";
 	//NK
 	final String nkpass = "0823";
-	final String nkpage = "/paradise/portfolio1.html";
+	final String nkpage = "/paradise/portfolio0.html";
 	String giveBack = "wrong";
 	
 	public String passCheck(String pass) {
