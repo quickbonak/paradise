@@ -13,5 +13,7 @@
 <b>BeeTriathlon</b> - 꿀벌 철인 게임 <br>
 <b>ConvertHomeToSpringBootMVC2</b> - 홈페이지의 스프링 부트 컨버팅, 뷰는 Thymeleaf, 간단한 CRUD까지 <br>
 <b>Homepage</b> - 홈페이지 <br>
-<b>JavaUniqueRandom</b> - 고유 램덤 라이브러리 자바 소스코드와 jar파일 <br>
+<b>JavaUniqueRandom</b> - 고유 램덤 라이브러리 자바 소스코드 <br>
+<b>urandom-1.0.0.jar</b> - 고유 랜덤 라이브러리 파일 <br>
+랜덤 라이브러리의 설명서는 <a href="http://bpduo.com/paradise/portfolio0.html">홈페이지</a>와 <a href="https://github.com/quickbonak/UniqueRandom">배포용 저장소</a> 에 있습니다.<br>
 <b>Scheduler</b> - 스캐줄러 <br>
