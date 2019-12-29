@@ -1,3 +1,4 @@
+<%@page import="com.github.quickbonak.paradise.UniqueRandom"%>
 <%@page import="java.util.Random"%>
 <%@page import="board.BoardBean"%>
 <%@page import="board.BoardMgr"%>
@@ -10,6 +11,7 @@
 	request.setCharacterEncoding("utf-8");
 	BoardMgr boardMgr = new BoardMgr();
 	BoardBean bean = new BoardBean();
+	UniqueRandom uRandom = new UniqueRandom();
 	boolean isLogin = false;
 	String id = "";
 	int idn = 0;
@@ -22,12 +24,26 @@
 	int numberOfPosts = boardMgr.howManyPost();
 	int numOfRandomPosts = 5;
 	if(isLogin==false)numOfRandomPosts = 6;
-	Random random = new Random();
+	
+	
+	//고유 난수 생성기를 사용하여 작업하되 글의 수가 부족할 경우 중복을 허용
+	//첫번째 postIdx엔 마지막에 작성한 글(첫번째 글)이 들어가서 마지막에 글을 쓴 사용자에게 확인 가능하도록 해준다.
 	int[] postIdx = new int[numOfRandomPosts];
-	postIdx[0] = 1;
-	for(int i=1; i<postIdx.length; i++){
-		postIdx[i] = random.nextInt(numberOfPosts)+1;
+	if(numberOfPosts > 5){
+		postIdx = uRandom.nextIntArray(0, numberOfPosts, numOfRandomPosts);
+		postIdx[0] = 1;
+	}else{
+		for(int i=1; i<postIdx.length; i++){
+			postIdx[i] = uRandom.random.nextInt(numberOfPosts)+1;
+		}
+		postIdx[0] = 1;
 	}
+	
+	
+	
+	
+	
+	
 	   
 %>
 
