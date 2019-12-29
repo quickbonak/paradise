@@ -29,8 +29,8 @@
 	//고유 난수 생성기를 사용하여 작업하되 글의 수가 부족할 경우 중복을 허용
 	//첫번째 postIdx엔 마지막에 작성한 글(첫번째 글)이 들어가서 마지막에 글을 쓴 사용자에게 확인 가능하도록 해준다.
 	int[] postIdx = new int[numOfRandomPosts];
-	if(numberOfPosts > 5){
-		postIdx = uRandom.nextIntArray(0, numberOfPosts, numOfRandomPosts);
+	if(numberOfPosts > 6){
+		postIdx = uRandom.nextIntArray(2, numberOfPosts, numOfRandomPosts);
 		postIdx[0] = 1;
 	}else{
 		for(int i=1; i<postIdx.length; i++){
